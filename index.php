@@ -39,13 +39,12 @@ $host = getenv('APPSETTING_DB_HOST');
 $master_key = getenv('APPSETTING_DB_KEY');
 
 echo("HOST:". $host);
-
 echo("masterkey:". $master_key);
 // connect DocumentDB
  try {
 	 
  
-$documentdb = new DocumentDB($host, $master_key);
+$documentdb = new DocumentDB($host, $master_key, true);
 //$db = $documentdb->selectDB("slackBigData");
 //$col = $db->selectCollection("messages");
 
@@ -85,7 +84,7 @@ require_once('display_output.php');
  }
  catch (Exception $e)//
  {
-	 $out['message'] = 'Caught nasty exception: '. $e->getMessage();
+	 $out['message'] = 'Caught nasty exception: '.  json_encode($e);
    require('display_output.php');
 exit();
  }
