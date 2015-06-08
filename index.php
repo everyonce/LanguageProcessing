@@ -26,7 +26,7 @@ $key = htmlentities($_GET['key']);
 if ($format == '') $format = 'json';
 
 $out = array();
-$out['status'] = '200';
+$out['status'] = '500';
 $out['message'] = 'This is a sample api call. Change this to a description of what this API call does.';
 //$out['link'] = 'http://yourdomain.com/path-to-your-api-documentation';
 $out['request']['format'] = $format;
@@ -41,9 +41,7 @@ $master_key = getenv('APPSETTING_DB_KEY');
 echo('HOST:'. $host);
 echo('masterkey:'. $master_key);
 // connect DocumentDB
- try {
-	 
- 
+try {
 $documentdb = new DocumentDB($host, $master_key, true);
 //$db = $documentdb->selectDB("slackBigData");
 //$col = $db->selectCollection("messages");
@@ -82,9 +80,9 @@ if ($format == 'json') {
 
 require_once('display_output.php');
  }
- catch (Exception $e)//
+ catch (Exception $e)
  {
-	 $out['message'] = 'Caught nasty exception: '.  json_encode($e);
+	 $out['message'] = 'Caught nasty exception: '.json_encode($e);
    require('display_output.php');
 exit();
  }
