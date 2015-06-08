@@ -40,13 +40,14 @@ $out['request']['date'] = date('Y-m-d h:i:s');
 $host = getenv('APPSETTING_DB_HOST');
 $master_key = getenv('APPSETTING_DB_KEY');
 
-require('display_output.php');
-exit();
 
 // connect DocumentDB
 $documentdb = new DocumentDB($host, $master_key);
 $db = $documentdb->selectDB("slackBigData");
 $col = $db->selectCollection("messages");
+
+require('display_output.php');
+exit();
 
 // run query
 //$json = $col->query("SELECT * FROM col_test");
