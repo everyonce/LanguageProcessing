@@ -35,11 +35,13 @@ $out['request']['format'] = $format;
 $out['request']['key'] = $key;
 $out['request']['date'] = date('Y-m-d h:i:s');
 
-require('display_output.php');
-exit();
+
 
 $host = getenv('APPSETTING_DB_HOST');
 $master_key = getenv('APPSETTING_DB_KEY');
+
+require('display_output.php');
+exit();
 
 // connect DocumentDB
 $documentdb = new DocumentDB($host, $master_key);
