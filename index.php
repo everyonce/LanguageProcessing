@@ -46,8 +46,8 @@ echo("masterkey:". $master_key);
 	 
  
 $documentdb = new DocumentDB($host, $master_key);
-$db = $documentdb->selectDB("slackBigData");
-$col = $db->selectCollection("messages");
+//$db = $documentdb->selectDB("slackBigData");
+//$col = $db->selectCollection("messages");
 
 
 require('display_output.php');
@@ -83,7 +83,7 @@ if ($format == 'json') {
 
 require_once('display_output.php');
  }
- catch (Exception $e)
+ catch (Exception $e)//
  {
 	 $out['message'] = 'Caught nasty exception: '. $e->getMessage();
    require('display_output.php');
