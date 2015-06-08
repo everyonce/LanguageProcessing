@@ -38,8 +38,8 @@ $out['request']['date'] = date('Y-m-d h:i:s');
 $host = getenv('APPSETTING_DB_HOST');
 $master_key = getenv('APPSETTING_DB_KEY');
 
-echo("HOST:". $host);
-echo("masterkey:". $master_key);
+echo('HOST:'. $host);
+echo('masterkey:'. $master_key);
 // connect DocumentDB
  try {
 	 
