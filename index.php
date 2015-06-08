@@ -4,9 +4,7 @@
  *
  */
  
- try {
-	 
- 
+
 include('needed_functions.php');
 require_once('phpdocumentdb.php');
 
@@ -40,15 +38,20 @@ $out['request']['date'] = date('Y-m-d h:i:s');
 $host = getenv('APPSETTING_DB_HOST');
 $master_key = getenv('APPSETTING_DB_KEY');
 
+echo("HOST:". $host);
 
+echo("masterkey:". $master_key);
 // connect DocumentDB
+ try {
+	 
+ 
 $documentdb = new DocumentDB($host, $master_key);
 $db = $documentdb->selectDB("slackBigData");
 $col = $db->selectCollection("messages");
 
+
 require('display_output.php');
 exit();
-
 // run query
 //$json = $col->query("SELECT * FROM col_test");
 
@@ -82,5 +85,7 @@ require_once('display_output.php');
  }
  catch (Exception $e)
  {
-	 echo 'Caught nasty exception: ', $e->getMessage(), "\n";
+	 $out['message'] = 'Caught nasty exception: '. $e->getMessage();
+   require('display_output.php');
+exit();
  }
