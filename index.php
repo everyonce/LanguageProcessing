@@ -3,7 +3,7 @@
  * Sample REST API Call
  *
  */
- 
+ try {
 
 include('needed_functions.php');
 require_once('phpdocumentdb.php');
@@ -41,7 +41,7 @@ $master_key = getenv('APPSETTING_DB_KEY');
 echo('HOST:'. $host);
 echo('masterkey:'. $master_key);
 // connect DocumentDB
-try {
+
 $documentdb = new DocumentDB($host, $master_key, true);
 //$db = $documentdb->selectDB("slackBigData");
 //$col = $db->selectCollection("messages");
